@@ -23,11 +23,22 @@
 
         public int KlientId { get; private set; }
 
-        public string ImieNazwiskoP
+        public string ImieNazwisko
         {
             get
             {
-                return Imie + "," + Nazwisko;
+                string imieNazwisko = Imie;
+
+                if (!string.IsNullOrWhiteSpace(Nazwisko))
+                {
+                    if (!string.IsNullOrWhiteSpace(imieNazwisko))
+                    {
+                        imieNazwisko += ", ";
+                    }
+                    imieNazwisko += Nazwisko;
+                }
+
+                return imieNazwisko;
             }
         }
         
