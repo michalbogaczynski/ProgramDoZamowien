@@ -2,6 +2,8 @@
 {
     public class Klient
     {
+        public static int Licznik { get; set; }
+
         private string _nazwisko;
         public string Nazwisko
         {
@@ -22,6 +24,7 @@
         public string Email { get; set; }
 
         public int KlientId { get; private set; }
+        
 
         public string ImieNazwisko
         {

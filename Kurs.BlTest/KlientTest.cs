@@ -49,7 +49,7 @@ namespace Kurs.BlTest
             // Arrange (przygotuj test)
             Klient klient = new Klient();
             klient.Imie = "Robert";
-            
+
 
             string oczekiwana = "Robert";
 
@@ -58,6 +58,30 @@ namespace Kurs.BlTest
 
             // Assert (potwierdz test)
             Assert.AreEqual(oczekiwana, aktualna);
+
+        }
+            [TestMethod]
+        public void StaticTest()
+        {
+            // Arrange (przygotuj test)
+
+            var kln1 = new Klient();
+            kln1.Imie = "Jacek";
+            Klient.Licznik += 1;
+
+            var kln2 = new Klient();
+            kln2.Imie = "Maciek";
+            Klient.Licznik += 1;
+
+            var kln3 = new Klient();
+            kln3.Imie = "Irek";
+            Klient.Licznik += 1;
+
+            // Act (działaj)
+
+
+            // Assert (potwierdz test)
+            Assert.AreEqual(3, Klient.Licznik);
 
         }
     }
