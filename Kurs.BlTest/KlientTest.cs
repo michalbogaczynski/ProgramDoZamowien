@@ -83,6 +83,58 @@ namespace Kurs.BlTest
             // Assert (potwierdz test)
             Assert.AreEqual(3, Klient.Licznik);
 
+
+
+        }
+
+
+        [TestMethod]
+        public void ZwalidujTest()
+        {
+            // Arrange (przygotuj test)
+            var klient = new Klient();
+            klient.Nazwisko = "Kowal";
+            klient.Email = "marcin@dev-hobby.pl";
+            var oczekiwana = true;
+
+
+            // Act (działaj)
+            var aktualna = klient.Waliduj();
+
+            // Assert (potwierdz test)
+            Assert.AreEqual(oczekiwana, aktualna);
+        }
+
+        [TestMethod]
+        public void ZwalidujBrakNazwiskaTest()
+        {
+            // Arrange (przygotuj test)
+            var klient = new Klient();            
+            klient.Email = "marcin@dev-hobby.pl";
+            var oczekiwana = false;
+
+
+            // Act (działaj)
+            var aktualna = klient.Waliduj();
+
+            // Assert (potwierdz test)
+            Assert.AreEqual(oczekiwana, aktualna);
+        }
+
+        [TestMethod]
+        public void ZwalidujEmailTest()
+        {
+            // Arrange (przygotuj test)
+            var klient = new Klient();
+            klient.Nazwisko = "Kowal";
+            var oczekiwana = false;
+
+
+            // Act (działaj)
+            var aktualna = klient.Waliduj();
+
+            // Assert (potwierdz test)
+            Assert.AreEqual(oczekiwana, aktualna);
         }
     }
 }
