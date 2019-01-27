@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kurs.BL
 {
     public class KlientRepository
     {
-
         private AdresRepository adresRepository { get; set; }
 
         public KlientRepository()
@@ -16,27 +12,27 @@ namespace Kurs.BL
             adresRepository = new AdresRepository();
         }
 
-        
         /// <summary>
         /// Pobieramy jednego klienta
         /// </summary>
-        /// <param name="klientID"></param>
+        /// <param name="klientId"></param>
         /// <returns></returns>
-        public Klient Pobierz(int klientID)
+        public Klient Pobierz(int klientId)
         {
-            //Tworzymy instancję klasy klienta
-            Klient klient = new Klient(klientID);
-            klient.ListaAdresow = adresRepository.PobierzPoKlientID(klientID).ToList();
+            // Tworzymy instancję klasy klienta
+            Klient klient = new Klient(klientId);
+            klient.ListaAdresow = adresRepository.PobierzPoKlientID(klientId).ToList();
 
-            //kod który pobiera określonego klienta
+            //Kod który pobiera określonego klienta
 
-            // Tymczasowo zakodowane wartości, aby zwrócić klienta
-            if (klientID == 1)
+            // Tymczasowo zakodowane wartosc, aby zwrocić klienta
+            if (klientId == 1)
             {
                 klient.Email = "marcin@dev-hobby.pl";
                 klient.Imie = "Marcin";
-                klient.Nazwisko = "Kowal";                
+                klient.Nazwisko = "Kowal";
             }
+
             return klient;
         }
 
@@ -46,7 +42,7 @@ namespace Kurs.BL
         /// <returns></returns>
         public List<Klient> Pobierz()
         {
-            //kod który pobiera wszystkich klientów
+            //Kod który pobiera wszystkich klientów
             return new List<Klient>();
         }
 

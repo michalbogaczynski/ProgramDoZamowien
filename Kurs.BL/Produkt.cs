@@ -1,30 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kurs.BL
 {
     public class Produkt
     {
+        #region konstruktory
         public Produkt()
         {
-
         }
 
         public Produkt(int produktID)
         {
             ProduktID = produktID;
         }
+        #endregion
 
+        #region właściwości
         public int ProduktID { get; private set; }
         public Decimal? AktualnaCena { get; set; }
         public string Opis { get; set; }
         public string NazwaProduktu { get; set; }
+        #endregion
 
-
-        //Metody
+        #region metody
         /// <summary>
         /// Sprawdza dane produktu
         /// </summary>
@@ -39,25 +39,26 @@ namespace Kurs.BL
                 poprawne = false;
 
             return poprawne;
-
         }
+
         /// <summary>
         /// Zapisuje produkt
         /// </summary>
         /// <returns></returns>
         public bool Zapisz()
         {
-            //kod który zapisuje zdefiniowany produkt
+            // kod, który zapisuje zdefiniowany produkt
             return true;
         }
+
         /// <summary>
         /// Pobieramy jedne produkt
         /// </summary>
-        /// <param name="produktID"></param>
+        /// <param name="produktId"></param>
         /// <returns></returns>
         public Produkt Pobierz(int produktID)
         {
-            //kod który pobiera określony produkt
+            //Kod który pobiera określony produkt
             return new Produkt();
         }
 
@@ -67,9 +68,9 @@ namespace Kurs.BL
         /// <returns></returns>
         public List<Produkt> Pobierz()
         {
-            //kod który pobiera wszystkich klientów
+            //Kod który pobiera wszystkich klientów
             return new List<Produkt>();
         }
-
+        #endregion
     }
 }

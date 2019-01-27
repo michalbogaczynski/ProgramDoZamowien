@@ -13,7 +13,7 @@ namespace Kurs.BL
         public Klient(int klientID)
         {
             KlientID = klientID;
-            ListaAdresow = new List<Produkt>();
+            ListaAdresow = new List<Adres>();
         }
         #endregion        
 
@@ -61,7 +61,7 @@ namespace Kurs.BL
             }
         }
 
-        public List<Produkt> ListaAdresow { get; set; }
+        public List<Adres> ListaAdresow { get; set; }
        
 
         #endregion

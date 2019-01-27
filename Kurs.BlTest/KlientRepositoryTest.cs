@@ -19,8 +19,8 @@ namespace Kurs.BlTest
                 Imie = "Marcin",
                 Nazwisko = "Kowal"
 
-        };
-            
+            };
+
             // Act (działaj)
             var aktualna = klientRepository.Pobierz(1);
 
@@ -31,14 +31,13 @@ namespace Kurs.BlTest
             Assert.AreEqual(oczekiwana.Email, aktualna.Email);
             Assert.AreEqual(oczekiwana.Imie, aktualna.Imie);
             Assert.AreEqual(oczekiwana.Nazwisko, aktualna.Nazwisko);
-
         }
 
         [TestMethod]
         public void PobierzKlientaZAdresami()
         {
-            // Arrange (przygotuj test)
-            var klientRepository = new KlientRepository();
+            //Arrange
+            var klientrepository = new KlientRepository();
             var oczekiwana = new Klient(1)
             {
                 Email = "marcin@dev-hobby.pl",
@@ -54,20 +53,40 @@ namespace Kurs.BlTest
                         Kraj = "Polska",
                         KodPocztowy = "11-100"
                     },
-                         new Adres()
+
+                    new Adres()
                     {
-                        AdresTyp = 1,
-                        Ulica = "Adama",
-                        Miasto = "Opole",
+                        AdresTyp = 3,
+                        Ulica = "Miła",
+                        Miasto = "Katowice",
                         Kraj = "Polska",
-                        KodPocztowy = "11-100"
-                    },
+                        KodPocztowy = "44-400"
+                    }
                 }
-            }
+
+            };
+
 
             // Act (działaj)
 
+            var aktualna = klientrepository.Pobierz(1);
+
             // Assert (potwierdz test)
+            Assert.AreEqual(oczekiwana.KlientID, aktualna.KlientID);
+            Assert.AreEqual(oczekiwana.Email, aktualna.Email);
+            Assert.AreEqual(oczekiwana.Imie, aktualna.Imie);
+            Assert.AreEqual(oczekiwana.Nazwisko, aktualna.Nazwisko);
+            for (int i = 0; i < 1; i++)
+            {
+                Assert.AreEqual(oczekiwana.ListaAdresow[i].AdresTyp, aktualna.ListaAdresow[i].AdresTyp);
+                Assert.AreEqual(oczekiwana.ListaAdresow[i].Ulica, aktualna.ListaAdresow[i].Ulica);
+                Assert.AreEqual(oczekiwana.ListaAdresow[i].Miasto, aktualna.ListaAdresow[i].Miasto);
+                Assert.AreEqual(oczekiwana.ListaAdresow[i].Kraj, aktualna.ListaAdresow[i].Kraj);
+                Assert.AreEqual(oczekiwana.ListaAdresow[i].KodPocztowy, aktualna.ListaAdresow[i].KodPocztowy);
+            }
         }
+
+
     }
 }
+

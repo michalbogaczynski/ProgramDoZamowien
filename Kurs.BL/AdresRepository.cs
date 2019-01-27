@@ -1,23 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Kurs.BL
 {
     public class AdresRepository
     {
-
         /// <summary>
-        /// Pobieramy jeden adres
+        /// Pobieramy jeden adres.
         /// </summary>
         /// <param name="adresID"></param>
         /// <returns></returns>
         public Adres Pobierz(int adresID)
         {
+            // Tworzymy instancję klasy Adres i przekazujemy żądany identyfikator
             Adres adres = new Adres(adresID);
 
+            // Kod, który pobiera zdefiniowany adres
+
+            //Tymczasowo zakodowane wartości do zwrócenia adresu
             if (adresID == 1)
             {
                 adres.AdresTyp = 1;
@@ -36,6 +35,9 @@ namespace Kurs.BL
         /// <returns></returns>
         public IEnumerable<Adres> PobierzPoKlientID(int klientID)
         {
+            // Kod, który pobiera zdefiniowany adresy dla klienta
+
+            //Tymczasowo zakodowane wartości do zwrócenia, zestaw adresów
             var listaAdresow = new List<Adres>();
 
             Adres adres = new Adres(1)
@@ -45,7 +47,6 @@ namespace Kurs.BL
                 Miasto = "Opole",
                 Kraj = "Polska",
                 KodPocztowy = "11-100"
-
             };
             listaAdresow.Add(adres);
 
@@ -53,10 +54,9 @@ namespace Kurs.BL
             {
                 AdresTyp = 3,
                 Ulica = "Miła",
-                Miasto = "Katocie",
+                Miasto = "Katowice",
                 Kraj = "Polska",
                 KodPocztowy = "44-400"
-
             };
             listaAdresow.Add(adres);
 
@@ -64,12 +64,13 @@ namespace Kurs.BL
         }
 
         /// <summary>
-        /// Zapisuje aktualny adres
+        /// Zapisuje aktualny adres.
         /// </summary>
-        /// <param name="adres"></param>
         /// <returns></returns>
         public bool Zapisz(Adres adres)
         {
+            // Kod, który zapisuje zdefiniowany adres.
+
             return true;
         }
     }
