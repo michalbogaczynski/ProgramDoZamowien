@@ -4,18 +4,21 @@ namespace Kurs.BL
 {
     public class Klient
     {
-        public Klient()
+        #region konstruktory
+        public Klient() : this(0)
         {
 
         }
 
-        public Klient(int klientId)
+        public Klient(int klientID)
         {
-            KlientId = klientId;
+            KlientID = klientID;
+            ListaAdresow = new List<Produkt>();
         }
+        #endregion        
 
+        #region właściwości
         // Właściwości
-
         public static int Licznik { get; set; }
 
         private string _nazwisko;
@@ -37,9 +40,8 @@ namespace Kurs.BL
 
         public string Email { get; set; }
 
-        public int KlientId { get; private set; }
+        public int KlientID { get; private set; }
         
-
         public string ImieNazwisko
         {
             get
@@ -59,6 +61,12 @@ namespace Kurs.BL
             }
         }
 
+        public List<Produkt> ListaAdresow { get; set; }
+       
+
+        #endregion
+
+        #region metody
         // Metody
 
         public bool Waliduj()
@@ -102,5 +110,7 @@ namespace Kurs.BL
             //kod który pobiera wszystkich klientów
             return new List<Klient>();
         }
+        #endregion
+            
     }
 }

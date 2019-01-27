@@ -8,6 +8,14 @@ namespace Kurs.BL
 {
     public class KlientRepository
     {
+
+        private AdresRepository adresRepository { get; set; }
+
+        public KlientRepository()
+        {
+            adresRepository = new AdresRepository();
+        }
+
         
         /// <summary>
         /// Pobieramy jednego klienta
@@ -18,6 +26,7 @@ namespace Kurs.BL
         {
             //Tworzymy instancję klasy klienta
             Klient klient = new Klient(klientID);
+            klient.ListaAdresow = adresRepository.PobierzPoKlientID(klientID).ToList();
 
             //kod który pobiera określonego klienta
 

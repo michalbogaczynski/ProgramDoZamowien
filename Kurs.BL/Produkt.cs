@@ -62,7 +62,7 @@ namespace Kurs.BL
         }
 
         /// <summary>
-        /// Pobieramy wszystkich klientów
+        /// Pobieramy wszystkie produkty
         /// </summary>
         /// <returns></returns>
         public List<Produkt> Pobierz()
